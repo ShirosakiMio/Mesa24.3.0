@@ -60,7 +60,7 @@
 static simple_mtx_t shim_lock = SIMPLE_MTX_INITIALIZER;
 struct set *opendir_set;
 bool drm_shim_debug;
-static int ioctl(int fd, unsigned long request, ...) __overloadable;
+static int __attribute__((overloadable)) ioctl(int fd, unsigned long request, ...);
 
 /* If /dev/dri doesn't exist, we'll need an arbitrary pointer that wouldn't be
  * returned by any other opendir() call so we can return just our fake node.
