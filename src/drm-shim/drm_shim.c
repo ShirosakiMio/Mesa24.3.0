@@ -72,7 +72,7 @@ REAL_FUNCTION_POINTER(closedir);
 REAL_FUNCTION_POINTER(dup);
 REAL_FUNCTION_POINTER(fcntl);
 REAL_FUNCTION_POINTER(fopen);
-REAL_FUNCTION_POINTER(ioctl);
+// REAL_FUNCTION_POINTER(ioctl);
 REAL_FUNCTION_POINTER(mmap);
 REAL_FUNCTION_POINTER(mmap64);
 REAL_FUNCTION_POINTER(open);
@@ -81,6 +81,8 @@ REAL_FUNCTION_POINTER(readdir);
 REAL_FUNCTION_POINTER(readdir64);
 REAL_FUNCTION_POINTER(readlink);
 REAL_FUNCTION_POINTER(realpath);
+
+int *real_ioctl(int, unsigned long, ...) = ioctl;
 
 static int __attribute__((overloadable)) ioctl(int fd, unsigned long request, ...);
 
