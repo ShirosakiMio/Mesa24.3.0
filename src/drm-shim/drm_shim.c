@@ -82,7 +82,7 @@ REAL_FUNCTION_POINTER(readdir64);
 REAL_FUNCTION_POINTER(readlink);
 REAL_FUNCTION_POINTER(realpath);
 
-int (*real_ioctl)(int, unsigned long, ...) = ioctl;
+int (*real_ioctl)(int, unsigned int, ...) = ioctl;
 
 static int __attribute__((overloadable)) ioctl(int fd, unsigned long request, ...);
 
